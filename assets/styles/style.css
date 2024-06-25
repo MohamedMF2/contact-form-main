@@ -68,8 +68,9 @@ body {
 
 .container {
   background-color: var(--color-green-200);
-  height: 100vh;
-
+  height: auto;
+  min-height: 100vh;
+  padding: 1rem;
 }
 
 .contact {
@@ -121,10 +122,67 @@ input[type="textarea"],
   width: auto;
 }
 
+/* hover behavior*/
+input:hover,
+span:hover,
+label:hover,
+textarea:hover,
+button:hover {
+  cursor: pointer;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border: 2px solid var(--color-green-600);
+  outline: none;
+}
+
 .form-field input[type="textarea"] {
   border-radius: 0.5rem;
 }
 
+/* Hide the default checkbox */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 18px;
+  border: 1px solid var(--color-grey-500);
+  cursor: pointer;
+  position: relative;
+}
+
+/* Style the checkbox when checked */
+input[type="checkbox"]:checked {
+  background-color: var(--color-green-600);
+  border: 1px solid var(--color-green-600);
+}
+
+/* Create a custom checkmark */
+input[type="checkbox"]:checked::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.form-field--consent {
+  flex-direction: column;
+}
+
+.form-field--consent > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 5px;
+}
 .form-field span.required {
   color: var(--color-green-600);
 }
@@ -143,12 +201,20 @@ span.error {
   font-family: var(--font-family-karla);
 }
 
+#success-message {
+  display: none;
+}
+
+.error {
+  color: red;
+}
+
 /* Media query for larger screens */
 @media (min-width: 376px) {
   .contact {
-    width: 60%;
+    width: 70%;
     min-width: 425px;
-    margin: 2rem auto;
+    margin: 1rem auto;
   }
 
   .contact-form {
@@ -182,11 +248,12 @@ span.error {
     padding: 0.5rem;
   }
 
-  .form-field--consent {
-    flex-direction: row;
-  }
   .form-btn {
     padding: 1.5rem;
     font-size: 1.6rem;
+  }
+
+  .form-field--consent {
+    flex-direction: column;
   }
 }
