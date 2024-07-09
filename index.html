@@ -11,124 +11,151 @@
       sizes="32x32"
       href="./assets/images/favicon-32x32.png"
     />
- 
 
     <link rel="stylesheet" href="./assets/styles/style.css" />
     <title>Frontend Mentor | Contact form</title>
-
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  
-    </style>
   </head>
   <body>
+    <!--  Alert Dialog -->
+    <div class="alert" id="alert">
+      <div class="alert-status">
+        <span class="true-icon"> ✓ </span><span>Message Sent!</span>
+      </div>
+      <p id="alert-message">
+        Thanks for completing the form. We'll be in touch soon!
+      </p>
+    </div>
     <div class="container">
       <section class="contact">
         <h1 class="contact-heading">Contact Us</h1>
         <form class="contact-form" id="contact-form">
           <div class="form-field form-field--firstName">
-            <label for="first-name">First Name  <span class="required">*</span></label>
-            <input type="text" name="firstName" id="first-name"  required>
-            <span class="error" id="first-name-error">First Name is required</span>
+            <label for="first-name"
+              >First Name <span class="required">*</span></label
+            >
+            <input type="text" name="firstName" id="first-name" required />
+            <span class="error" id="first-name-error"
+              >First Name is required</span
+            >
           </div>
-    
+
           <div class="form-field form-field--lastName">
-            <label for="last-name"> Last Name  <span class="required">*</span></label>
-            <input type="text" name="lastName" id="last-name"  required>
-            <span class="error" id="last-name-error">Last Name is required</span>
+            <label for="last-name"
+              >Last Name <span class="required">*</span></label
+            >
+            <input type="text" name="lastName" id="last-name" required />
+            <span class="error" id="last-name-error"
+              >Last Name is required</span
+            >
           </div>
-          
+
           <div class="form-field form-field--email">
-            <label for='email'>Email Address <span class="required">*</span></label> 
-            <input type="email" name="email" id="email"  required>
-            <span class="error" id="email-error">Please enter a valid email address. This field is required.</span>
+            <label for="email"
+              >Email Address <span class="required">*</span></label
+            >
+            <input type="email" name="email" id="email" required />
+            <span class="error" id="email-error"
+              >Please enter a valid email address. This field is required.</span
+            >
           </div>
 
           <div class="form-field form-field--queryType">
-            <label for="query-type">Query Type <span class="required">*</span></label>
+            <label>Query Type <span class="required">*</span></label>
             <div id="query-type">
-                <div class="query-type-option">
-                    <input type="radio" name="queryType" id="query-type-general" value="general">
-                    <label for="query-type-general">General Enquiry</label>
-                </div>
-                <div class="query-type-option">
-                    <input type="radio" name="queryType" id="query-type-support" value="support">
-                    <label for="query-type-support">Support Request</label>
-                </div>
+              <div class="query-type-option">
+                <input
+                  type="radio"
+                  name="queryType"
+                  id="query-type-general"
+                  value="general"
+                />
+                <label for="query-type-general">General Enquiry</label>
+              </div>
+              <div class="query-type-option">
+                <input
+                  type="radio"
+                  name="queryType"
+                  id="query-type-support"
+                  value="support"
+                />
+                <label for="query-type-support">Support Request</label>
+              </div>
             </div>
-            <span class="error" id="query-type-error">Please select a query type</span>
-        </div>
-        
+            <span class="error" id="query-type-error"
+              >Please select a query type</span
+            >
+          </div>
 
           <div class="form-field form-field--message">
             <label for="message">Message <span class="required">*</span></label>
-            <textarea name="message" id="message" rows="5"  required></textarea>
+            <textarea name="message" id="message" rows="5" required></textarea>
             <span class="error" id="message-error">This field is required</span>
           </div>
-    
+
           <div class="form-field form-field--consent">
             <div>
-              <input type="checkbox" name="consent" id="consent" required>
-              <label for="consent">
-                I consent to being contacted by the team  <span class="required">*</span>
-              </label>
+              <input type="checkbox" name="consent" id="consent" required />
+              <label for="consent"
+                >I consent to being contacted by the team
+                <span class="required">*</span></label
+              >
             </div>
-              
-            <span class="error" id="consent-error">To submit this form, please consent to being contacted</span>
+            <span class="error" id="consent-error"
+              >To submit this form, please consent to being contacted</span
+            >
           </div>
-            
+
           <button type="submit" class="form-btn">Submit</button>
-          <div class="success" id="success-message">Message Sent! Thanks for completing the form. We'll be in touch soon!</div>
+          <div class="success" id="success-message">Message Sent!</div>
         </form>
       </section>
-      <!-- <div class="attribution">
-        Challenge by
-        <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a
-        >. Coded by <a href="#">Mohamed Fouad</a>.
-      </div> -->
     </div>
+
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const form = document.getElementById('contact-form');
-    
-        const inputs = form.querySelectorAll('input, textarea, select');
+      document.addEventListener("DOMContentLoaded", function () {
+        const form = document.getElementById("contact-form");
+        const inputs = form.querySelectorAll("input, textarea, select");
         const errorElements = {
-          'first-name': document.getElementById('first-name-error'),
-          'last-name': document.getElementById('last-name-error'),
-          'email': document.getElementById('email-error'),
-          'queryType': document.getElementById('query-type-error'),
-          'message': document.getElementById('message-error'),
-          'consent': document.getElementById('consent-error')
+          "first-name": document.getElementById("first-name-error"),
+          "last-name": document.getElementById("last-name-error"),
+          email: document.getElementById("email-error"),
+          queryType: document.getElementById("query-type-error"),
+          message: document.getElementById("message-error"),
+          consent: document.getElementById("consent-error"),
         };
-    
-        inputs.forEach(input => {
-          input.addEventListener('blur', () => validateField(input));
-          input.addEventListener('focus', () => hideError(input));
+
+        inputs.forEach((input) => {
+          input.addEventListener("blur", () => validateField(input));
+          input.addEventListener("focus", () => hideError(input));
         });
-    
-        form.addEventListener('submit', function(event) {
+
+        form.addEventListener("submit", function (event) {
           event.preventDefault();
-          
+
           let isValid = true;
-          inputs.forEach(input => {
+          inputs.forEach((input) => {
             if (!validateField(input)) {
               isValid = false;
             }
           });
-    
+
           if (isValid) {
-            document.getElementById('success-message').style.display = 'block';
+            showCustomAlert(
+              "Message Sent! Thanks for completing the form. We'll be in touch soon."
+            );
             form.reset();
           }
         });
-    
+
         function validateField(field) {
-          const errorElement = errorElements[field.id] || errorElements[field.name];
-          if (field.type === 'checkbox' && !field.checked) {
+          const errorElement =
+            errorElements[field.id] || errorElements[field.name];
+          if (field.type === "checkbox" && !field.checked) {
             showError(field, errorElement);
             return false;
-          } else if (field.type === 'radio') {
+          } else if (field.type === "radio") {
             const radios = form.querySelectorAll(`input[name="${field.name}"]`);
-            let checked = Array.from(radios).some(radio => radio.checked);
+            let checked = Array.from(radios).some((radio) => radio.checked);
             if (!checked) {
               showError(field, errorElement);
               return false;
@@ -144,18 +171,30 @@
             return true;
           }
         }
-    
+
         function showError(field, errorElement) {
           if (errorElement) {
-            console.log(errorElement)
-            errorElement.style.display = 'block';
+            errorElement.style.display = "block";
           }
         }
-    
+
         function hideError(field, errorElement) {
           if (errorElement) {
-            errorElement.style.display = 'none';
+            errorElement.style.display = "none";
           }
+        }
+
+        function showCustomAlert(message) {
+          const customAlert = document.getElementById("alert");
+          const customAlertMessage = document.getElementById("alert-message");
+
+          customAlertMessage.textContent = message;
+          customAlert.classList.add("success");
+          customAlert.style.display = "flex";
+
+          setTimeout(function () {
+            customAlert.style.display = "none";
+          }, 3000); // Hide after 3 seconds
         }
       });
     </script>
